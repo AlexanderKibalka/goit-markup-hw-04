@@ -357,12 +357,15 @@ img {
 }
 .customer-link:hover,
 .customer-link:focus {
-  counter-reset: var(--bt-hover-cl);
+  color: var(--bt-hover-cl);
   border-color: var(--bt-hover-cl);
 }
 .customer-link:hover,
 .customer-link:focus .customer-icon {
   fill: var(--bt-hover-cl);
+}
+.customer-icon {
+  fill: currentColor;
 }
 
 /* footer styles*/
@@ -387,7 +390,6 @@ img {
   color: var(--cloud-cl);
 }
 .footer-text {
-  font-weight: 500px;
   color: var(--cloud-cl);
   max-width: 264px;
 }
@@ -396,6 +398,7 @@ img {
   margin-left: 0;
 }
 .social {
+  font-weight: 500;
   margin-bottom: 16px;
   color: var(--main-white-cl);
 }
@@ -546,7 +549,7 @@ img {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   background-color: var(--dairy-cl);
   border-radius: 4px;
-  transition: opacity 300ms ease-out 250ms, transform var(--anim);
+  transition: transform var(--anim);
 }
 .backdrop.is-hidden .modal {
   opacity: 0;
@@ -577,7 +580,7 @@ img {
 .modal-icon {
   transition: fill var(--anim);
 }
-.modal-icon:hover,
-.modal-icon:focus {
+.modal-btn:hover .modal-icon,
+.modal-btn:focus .modal-icon {
   fill: var(--main-white-cl);
 }
