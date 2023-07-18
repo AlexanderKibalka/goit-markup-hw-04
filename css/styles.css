@@ -102,6 +102,12 @@ img {
 }
 
 /* Header styles */
+.header {
+  border-bottom: 1px solid var(--cornflower, #e7e9fc);
+  box-shadow: 0px 1px 6px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
+}
 .header-container {
   display: flex;
   align-items: center;
@@ -140,9 +146,12 @@ img {
   position: relative;
   transition: color var(--anim);
 }
+.header-nav-link.active {
+  color: #404bbf;
+}
 .header-nav-link.active::after {
   position: absolute;
-  bottom: -3px;
+  bottom: -1px;
   left: 0;
   content: '';
   display: block;
@@ -176,6 +185,7 @@ img {
   margin: 0 auto;
   padding-top: 188px;
   padding-bottom: 188px;
+  background-position: center;
   background-color: var(--title-cl);
   background-repeat: no-repeat;
   background-size: cover;
@@ -260,7 +270,7 @@ img {
   background-color: var(--cloud-cl);
 }
 .team-card-content {
-  padding: 32px 16px;
+  padding: 32px 0px;
 }
 .team-title {
   font-size: 36px;
@@ -340,12 +350,14 @@ img {
   fill: var(--lightslate);
   width: 168px;
   height: 88px;
+  color: var(--lightslate);
   border-radius: 4px;
-  border: 1px solid var(--lightslate, #8e8f99);
-  transition: border-color var(--anim), fill var(--anim);
+  border: 1px solid var(--lightslate);
+  transition: border-color var(--anim), color var(--anim);
 }
 .customer-link:hover,
 .customer-link:focus {
+  counter-reset: var(--bt-hover-cl);
   border-color: var(--bt-hover-cl);
 }
 .customer-link:hover,
@@ -356,6 +368,7 @@ img {
 /* footer styles*/
 .footer-container {
   display: flex;
+  align-items: baseline;
 }
 .logo-text {
   margin-left: 0;
@@ -374,6 +387,7 @@ img {
   color: var(--cloud-cl);
 }
 .footer-text {
+  font-weight: 500px;
   color: var(--cloud-cl);
   max-width: 264px;
 }
@@ -383,6 +397,7 @@ img {
 }
 .social {
   margin-bottom: 16px;
+  color: var(--main-white-cl);
 }
 .footer-list-elips {
   display: flex;
@@ -438,13 +453,13 @@ img {
   border-radius: 4px;
   border: 1px solid var(--cornflower);
   transition: color var(--anim), background-color var(--anim),
-    border var(--anim);
+    border-color var(--anim), box-shadow var(--anim);
 }
 .filters-btn:hover,
 .filters-btn:focus {
   color: var(--main-white-cl);
   background-color: var(--bt-hover-cl);
-  border: 1px solid transparent;
+  border-color: var(--bt-hover-cl);
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -456,17 +471,18 @@ img {
 .card-item {
   background-color: var(--main-white-cl);
 }
-.card-item:hover,
-.card-item:focus {
+.card-link {
+  display: block;
+  transition: box-shadow var(--anim);
+}
+.card-link:hover,
+.card-link:focus {
   box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
     0px 1px 1px 0px rgba(46, 47, 66, 0.16),
     0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
-.card-link {
-  transition: transform var(--anim);
-}
 .card-link:hover .overlay-text,
-.portfolio-wrapper .overlay-text {
+.card-link:focus .overlay-text {
   transform: translateY(0);
 }
 .card-title {
@@ -512,7 +528,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity 250ms ease-out, visibility 250ms ease-out;
+  transition: opacity var(--anim), visibility var(--anim);
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -523,12 +539,14 @@ img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translate(-50%, -50%) scale(1);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   background-color: var(--dairy-cl);
   border-radius: 4px;
-  transition: opacity 300ms ease-out 250ms, transform 300ms ease-out 250ms;
+  transition: opacity 300ms ease-out 250ms, transform var(--anim);
 }
 .backdrop.is-hidden .modal {
   opacity: 0;
@@ -549,4 +567,17 @@ img {
   background-color: var(--cornflower);
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color var(--anim), border var(--anim);
+}
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: var(--bt-hover-cl);
+  border: none;
+}
+.modal-icon {
+  transition: fill var(--anim);
+}
+.modal-icon:hover,
+.modal-icon:focus {
+  fill: var(--main-white-cl);
 }
